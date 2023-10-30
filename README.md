@@ -20,7 +20,8 @@ Frontend: React.js
 2. W folderze frontend uruchomić terminal -> npm install
 
 
----------URUCHUMOWIE------------
+---------URUCHOMIENIE------------
 
 Frontend : W folderze frontend uruchomić terminal -> npm start
-Frontend : W folderze Backend uruchomić terminal -> npm start
+
+Backend : W folderze Backend uruchomić terminal -> npm start
