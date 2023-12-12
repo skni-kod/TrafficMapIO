@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form action="/applications" method="post">
+            <label>Imie</label>
+            <input type="text" name="Imie" value=<%= locals.validated ? validated.Imie : '' %>>
+            <br>
+            <label>Nazwisko</label>
+            <input type="text" name="Nazwisko" value=<%= locals.validated ? validated.Nazwisko : '' %>>
+            <br>
+            <input type="submit">
+        </form>
+
+        <% if(locals.formMessage){ %>
+            <h1><%= locals.formMessage %></h1>
+        <% } %>
+        <br>
+        <% if(locals.errors && errors.Imie){ %>
+            <h1><%= locals.errors.Imie.msg %></h1>
+        <% } %>
+        <% if(locals.errors && errors.Nazwisko){ %>
+            <h1><%= errors.Nazwisko.msg %></h1>
+        <% } %>
+
+    </body>
+</html>

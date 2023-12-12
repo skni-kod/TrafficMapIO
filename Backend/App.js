@@ -1,20 +1,35 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const session = require('express-session');
 
-// Routers
-const UsersRouter = require('./Routes/UserRouter')
+const routes = require('./routes/index');
 
-const App = express()
+const app = express();
 
-App.use('/user', UsersRouter)
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.set(express.static(path.join(__dirname, 'public')));
 
-App.get('/', (req, res) => {
-    res.end("Hello world!")
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 
-App.get('/user', (req, res, next) => {
-    res.end()
-})
+app.use(session({
+    secret: 'Something',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {}
+}));
 
-App.listen(5000, () => {
-    console.log('Server is listening on port 5000 ...')
-})
+app.use(flash());
+
+app.use('/', routes);
+
+app.use((req, res, next) => {
+    res.status(404).render('404');
+});
+
+module.exports = app;
