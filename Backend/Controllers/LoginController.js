@@ -10,21 +10,16 @@ const client = new Client({
 
 client.connect()
 
-
-const login = (req, res, next) => {
-    res.send("This is a login controller")
-
-    client.query(`SELECT * from users`, (err, client_res) => {
-        if(!err){
-            console.log(client_res.rows)
-        }
-        else{
-            console.log(error)
-        }
-    })
-
-    
-    res.end()
+const login = async (req, res, next) => {
+    const query = `SELECT username, email from users WHERE username = '${req.body.username}' AND password = '${req.body.password}'`
+    const db_res = await client.query(query)
+    if (db_res.rows) {
+        console.log(db_res.rows)
+        res.json({user: db_res.rows[0]})
+    }
+    else {
+        res.json({user: []})
+    }
     next()
 }
 

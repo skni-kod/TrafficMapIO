@@ -1,20 +1,15 @@
 const express = require('express')
 
 // Routers
-const UsersRouter = require('./Routes/UserRouter')
+const loginRoute = require('./Routes/LoginRoute')
 
-const App = express()
+const app = express()
 
-App.use('/user', UsersRouter)
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-App.get('/', (req, res) => {
-    res.end("Hello world!")
-})
+app.use('/login', loginRoute)
 
-App.get('/user', (req, res, next) => {
-    res.end()
-})
-
-App.listen(5000, () => {
+app.listen(5000, () => {
     console.log('Server is listening on port 5000 ...')
 })

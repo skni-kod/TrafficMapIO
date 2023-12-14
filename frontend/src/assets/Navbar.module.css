@@ -1,0 +1,28 @@
+.navbar {
+    background-color: var(--dark);
+    color: var(--light);
+    width: 100%;
+    padding: .5rem 5rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: end;
+}
+
+.navbar button {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.navbar a,
+.navbar button {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+    text-decoration: underline;
+}
