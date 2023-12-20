@@ -1,3 +1,5 @@
+import Navbar from "./Navbar"
+
 
 const Register = () => {
 
@@ -28,7 +30,7 @@ const Register = () => {
 
     return(
         <div>
-
+        <Navbar />
         <div id="container">
             <h1>Register</h1>
             <div id="credentials-div">

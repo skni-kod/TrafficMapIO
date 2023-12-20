@@ -1,0 +1,13 @@
+#navbar{
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar > li{
+    padding:50px
+}

@@ -1,3 +1,5 @@
+import Navbar from '../Views/Navbar'
+
 
 const Login = () => {
 
@@ -26,7 +28,7 @@ const Login = () => {
 
     return(
         <div>
-
+        <Navbar />
         <div id="container">
             <h1>Log in</h1>
             <div id="credentials-div">
