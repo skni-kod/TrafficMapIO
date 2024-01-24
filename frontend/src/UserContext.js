@@ -5,7 +5,6 @@ const UserContex = React.createContext()
 export function useUser() {
     return useContext(UserContex)
 }
-
  
 const UserProvider = ({children}) => {
     const [user, setUser] = useState({})

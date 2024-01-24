@@ -14,7 +14,6 @@ const login = async (req, res, next) => {
     const query = `SELECT username, email from users WHERE username = '${req.body.username}' AND password = '${req.body.password}'`
     const db_res = await client.query(query)
     if (db_res.rows) {
-        console.log(db_res.rows)
         res.json({user: db_res.rows[0]})
     }
     else {
@@ -22,6 +21,5 @@ const login = async (req, res, next) => {
     }
     next()
 }
-
 
 module.exports = login
