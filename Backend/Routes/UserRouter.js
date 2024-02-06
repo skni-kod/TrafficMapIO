@@ -10,7 +10,7 @@ router.get('/login/', loginController, (req, res) => {
     res.end()
 })
 
-router.get('/view/:id', userviewControler)
+
 
 
 
